@@ -11,11 +11,11 @@
     /* (styles unchanged for brevity, included as original) */
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
      :root {
-      --primary: #1e293b; --primary-light: #334155; --primary-dark: #0f172a; --accent: #2563eb; --accent-light: #60a5fa;
-      --gold: #f59e0b; --success: #10b981; --ink: #1e293b; --ink-soft: #475569; --muted: #94a3b8; --line: #e2e8f0;
-      --bg-light: #f8fafc; --surface: #ffffff; --radius-card: 24px; --radius-pill: 60px; --font-main: 'Outfit', sans-serif;
+      --primary: #000000; --primary-light: #333333; --primary-dark: #000000; --accent: #000000; --accent-light: #666666;
+      --gold: #000000; --success: #000000; --ink: #000000; --ink-soft: #444444; --muted: #888888; --line: #e0e0e0;
+      --bg-light: #f5f5f5; --surface: #ffffff; --radius-card: 24px; --radius-pill: 60px; --font-main: 'Outfit', sans-serif;
       --font-brand: 'Pacifico', cursive;
-      --danger: #ef4444; --warning: #f59e0b; --clamp: #dc2626; --paylater: #8b5cf6;
+      --danger: #333333; --warning: #666666; --clamp: #000000; --paylater: #444444;
     }
     html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--font-main); background: #f1f5f9; touch-action: pan-x pan-y; }
     .app { position: relative; width: 100%; height: 100%; overflow: hidden; }
@@ -97,7 +97,7 @@
     .dock-item { width: 56px; height: 56px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary); cursor: pointer; transition: 0.1s; }
     .dock-item.active { background: var(--primary) !important; color: white !important; }
     .dock-item:active { transform: scale(0.92); }
-    .toast-message { position: absolute; bottom: 110px; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--primary); color: white; padding: 14px 24px; border-radius: 60px; opacity: 0; transition: 0.25s; z-index: 9999; pointer-events: none; white-space: nowrap; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.15); text-align: center; max-width: 90%; overflow: hidden; text-overflow: ellipsis; }
+    .toast-message { position: absolute; top: 20px; left: 50%; transform: translateX(-50%) translateY(-10px); background: var(--primary); color: white; padding: 14px 24px; border-radius: 60px; opacity: 0; transition: 0.25s; z-index: 9999; pointer-events: none; white-space: nowrap; font-size: 0.9rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.15); text-align: center; max-width: 90%; overflow: hidden; text-overflow: ellipsis; }
     .toast-message.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     .section { display: none; }
     .section.active-section { display: block; }
@@ -1509,7 +1509,7 @@
   function renderChips(){
     chipContainer.innerHTML=''; ['All','Street','Centre','Car Park','Multi'].forEach(cat=>{
       const b=document.createElement('span'); b.className=`chip ${cat===currentChipFilter?'active':''}`;
-      b.innerHTML=`<i class="fa-solid ${cat==='All'?'fa-border-all':'fa-location-dot'}"></i> ${cat}`;
+      b.innerHTML=`<i class="fa-solid ${cat==='All'?'fa-earth-africa':'fa-location-dot'}"></i> ${cat}`;
       b.addEventListener('click',()=>{ chipContainer.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); b.classList.add('active'); currentChipFilter=cat; renderParkingCards(document.getElementById('parkingCardsContainer')); renderParkList(document.getElementById('fullParkList')); });
       chipContainer.appendChild(b);
     });
